@@ -5,7 +5,7 @@ const schema = require('./schema/schema');
 
 // Normal variable, not imports
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 /*
  * Hooking up graphQL to express
