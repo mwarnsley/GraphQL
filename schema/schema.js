@@ -6,7 +6,11 @@
 
 // Importing the modules needed for the schema file
 const graphql = require('graphql');
-const {GraphQLObjectType, GraphQLString, GraphQLInt} = graphql;
+const _ = require('lodash');
+const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema} = graphql;
+
+// HARDCODED DATA THAT WE NEED TO DELETE
+const users = [{id: '23', firstName: 'Bill', age: 20}, {id: '47', firstName: 'Samantha', age: 21}];
 
 /*
  * Object instructs graphql what the user object looks like
@@ -38,7 +42,14 @@ const RootQuery = new GraphQLObjectType({
     user: {
       type: UserType,
       args: {id: {type: GraphQLString}},
-      resolve(parentValue, args) {},
+      resolve(parentValue, args) {
+        return _.find(users, {id: args.id});
+      },
     },
   },
+});
+
+// Creating a new GraphQL Schema setting the query to the RootQuery and exporting
+module.exports = new GraphQLSchema({
+  query: RootQuery,
 });
