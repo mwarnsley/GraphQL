@@ -7,7 +7,7 @@
 // Importing the modules needed for the schema file
 const graphql = require('graphql');
 const axios = require('axios');
-const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema, GraphQLList} = graphql;
+const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema, GraphQLList, GraphQLNonNull} = graphql;
 
 /*
  * Object instructs graphql what the user object looks like
@@ -75,7 +75,30 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+/*
+ * Setting the mutation type for mutating the data in some fashion
+ * Every mutation has a different name
+ * GraphQLNonNull states that the user MUST pass this value in or an error will be thrown
+ */
+const mutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addUser: {
+      type: UserType,
+      args: {
+        firstName: {type: new GraphQLNonNull(GraphQLString)},
+        age: {type: new GraphQLNonNull(GraphQLInt)},
+        companyId: {type: GraphQLString},
+      },
+      resolve(parentValue, {firstName, age}) {
+        return axios.post(`http://localhost:3000/users`, {firstName, age}).then(res => res.data);
+      },
+    },
+  },
+});
+
 // Creating a new GraphQL Schema setting the query to the RootQuery and exporting
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation,
 });
