@@ -12,15 +12,28 @@ const {GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLSchema} = graphql;
 /*
  * Object instructs graphql what the user object looks like
  * name is a required property
- * fields is a required property as an object with id, firstName, age
+ * fields is a required property as an object
  * fields properties are objects with a type property using built in types from GraphQL
  */
+
+const CompanyType = new GraphQLObjectType({
+  name: 'Company',
+  fields: {
+    id: {type: GraphQLString},
+    name: {type: GraphQLString},
+    description: {type: GraphQLString},
+  },
+});
+
 const UserType = new GraphQLObjectType({
   name: 'User',
   fields: {
     id: {type: GraphQLString},
     firstName: {type: GraphQLString},
     age: {type: GraphQLInt},
+    company: {
+      type: CompanyType,
+    },
   },
 });
 
