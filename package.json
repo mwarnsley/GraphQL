@@ -4,7 +4,8 @@
   "description": "Sample users application using GraphQL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "express-graphql": "^0.6.11",
     "graphql": "^0.11.7",
     "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
