@@ -1,27 +1,24 @@
 {
   "users": [
     {
-      "id": "23",
-      "firstName": "Bill",
-      "age": 20,
-      "companyId": "1"
-    },
-    {
-      "id": "40",
-      "firstName": "Alex",
-      "age": 40,
-      "companyId": "2"
-    },
-    {
-      "id": "54",
-      "firstName": "Samantha",
-      "age": 35,
-      "companyId": "2"
-    },
-    {
       "firstName": "Marcus",
       "age": 30,
       "id": "HkQyr1vhb"
+    },
+    {
+      "firstName": "Samantha",
+      "age": 35,
+      "id": "rJR0vywn-"
+    },
+    {
+      "firstName": "Josh",
+      "age": 22,
+      "id": "ByK1_ywnW"
+    },
+    {
+      "firstName": "Sara",
+      "age": 27,
+      "id": "H1yl_1DhZ"
     }
   ],
   "companies": [
