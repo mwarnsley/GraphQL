@@ -3,22 +3,26 @@
     {
       "firstName": "Marcus",
       "age": 30,
-      "id": "HkQyr1vhb"
+      "id": "HkQyr1vhb",
+      "companyId": "1"
     },
     {
       "firstName": "Samantha",
       "age": 35,
-      "id": "rJR0vywn-"
+      "id": "rJR0vywn-",
+      "companyId": "2"
     },
     {
       "firstName": "Josh",
       "age": 22,
-      "id": "ByK1_ywnW"
+      "id": "ByK1_ywnW",
+      "companyId": "2"
     },
     {
       "firstName": "Sara",
       "age": 27,
-      "id": "H1yl_1DhZ"
+      "id": "H1yl_1DhZ",
+      "companyId": "1"
     }
   ],
   "companies": [
